@@ -1,6 +1,5 @@
 <?php
-//les conditions
-//if
+
 $nom='jo';
 $sexe='homme';
 
@@ -68,8 +67,55 @@ switch($nombre){
         echo'le nombre ='.$n.'<br>';
     }
 
+    */
+
+    //les tableaux:
+
+    $noms=array('dan','ben','marc','dorcas');
+
+    $ages=array(
+        'dan'=>20,
+        'ben'=>22,
+        'marc'=>25,
+        'dorcas'=>'non specifique'
+    );
+ foreach($ages as $key => $valeurs ){
+    echo $key.'=>'.$valeurs.'<br/>';
+ }
+
+ 
+
+  TABLEAUX MULTIDIMENSIONNEL
+ 
+ $membres=array(
+   array('dan',20,'danielciroy87@gmail.com','M'),
+   array('ben',23,'banaw@gmail.com',"M"),
+   array('marc',25,'marc@gmail.com',"M")
+ );
+
+ for($i=0;$i<3;$i++){
+    for($ii=0;$ii<4;$ii++){
+        echo $membres[$i][$ii].'<br/>';
+    }
+ }
 
 
+function Somme($a,$b){
+    $S=$a+$b;
+    echo$S;
+    return($S);
+    
+}
+
+Somme(50,50);
+
+function Salutation($nom){
+    echo'bonjour '.$nom.' comment allez vous?';
+}
+Salutation('daniel');
+
+
+   
 
 
 
