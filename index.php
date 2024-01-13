@@ -1,5 +1,7 @@
 <?php
 
+/*
+
 $nom='jo';
 $sexe='homme';
 
@@ -67,7 +69,7 @@ switch($nombre){
         echo'le nombre ='.$n.'<br>';
     }
 
-    */
+
 
     //les tableaux:
 
@@ -85,7 +87,7 @@ switch($nombre){
 
  
 
-  TABLEAUX MULTIDIMENSIONNEL
+ // TABLEAUX MULTIDIMENSIONNEL
  
  $membres=array(
    array('dan',20,'danielciroy87@gmail.com','M'),
@@ -114,8 +116,35 @@ function Salutation($nom){
 }
 Salutation('daniel');
 
+*/
 
-   
+try{
+    $serverhost="localhost";
+    $servername="root";
+    $serverpass="";
+
+    $rappel= new PDO("msql:host=$serverhost;dbname=rappel_pdo",$servername,$serverpass);
+    $rappel->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+}catch(PDOException $e){
+    echo'ERROR'.$e->getMessage();
+}
+
+if(isset($_POST['valider'])){
+    $nom=$_POST['nom'];
+    $mdp=$_POST['mdp'];
+
+    $requete=$rappel-> prepare("INSERT INTO util VALUES(:0, :nom, :mdp)");
+    $req->execute(array(
+        "nom"=>$nom,
+        "mdp"=>$mdp
+    ));
+    echo 'vous etes inscrit';
+
+}else{
+    echo'inscrivez vous';
+}
+
 
 
 
